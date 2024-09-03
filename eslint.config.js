@@ -110,7 +110,9 @@ export default defineFlatConfig([
           varsIgnorePattern: "^_"
         }
       ],
-      // 三元运算符，缩进问题
+      IndentSize: "off", // 不检测缩进
+      "no-mixed-spaces-and-tabs": "off", // 不检测缩进
+      // 嵌套缩进2个字符
       "@typescript-eslint/indent": [
         "warn",
         2,
