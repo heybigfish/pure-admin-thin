@@ -80,3 +80,5 @@ function parseInt(s: string | number, radix?: number): number;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function parseFloat(string: string | number): number;
+
+declare module "element-plus";
