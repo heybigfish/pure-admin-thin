@@ -30,11 +30,11 @@
       ]
     },
     "types": [
-      "node",
+      // "node",
       "vite/client",
-      "element-plus/global",
-      "@pureadmin/table/volar",
-      "@pureadmin/descriptions/volar"
+      // "element-plus/global",
+      // "@pureadmin/table/volar",
+      // "@pureadmin/descriptions/volar"
     ]
   },
   "include": [
