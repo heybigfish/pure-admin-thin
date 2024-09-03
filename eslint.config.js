@@ -109,6 +109,33 @@ export default defineFlatConfig([
           argsIgnorePattern: "^_",
           varsIgnorePattern: "^_"
         }
+      ],
+      // 三元运算符，缩进问题
+      "@typescript-eslint/indent": [
+        "warn",
+        2,
+        {
+          SwitchCase: 1,
+          VariableDeclarator: 2,
+          outerIIFEBody: 1,
+          MemberExpression: 1,
+          FunctionDeclaration: {
+            parameters: 1,
+            body: 1
+          },
+          FunctionExpression: {
+            parameters: 1,
+            body: 1
+          },
+          CallExpression: {
+            arguments: 1
+          },
+          ArrayExpression: 1,
+          ObjectExpression: 1,
+          ImportDeclaration: 1,
+          flatTernaryExpressions: false,
+          offsetTernaryExpressions: true
+        }
       ]
     }
   },
