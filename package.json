@@ -51,6 +51,7 @@
     "@pureadmin/descriptions": "^1.2.1",
     "@pureadmin/table": "^3.2.0",
     "@pureadmin/utils": "^2.4.8",
+    "@types/axios": "^0.14.0",
     "@vueuse/core": "^10.11.1",
     "@vueuse/motion": "^2.2.3",
     "animate.css": "^4.1.1",
