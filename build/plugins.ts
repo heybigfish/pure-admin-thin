@@ -9,9 +9,9 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import Inspector from "vite-plugin-vue-inspector";
 import { configCompressPlugin } from "./compress";
 import removeNoMatch from "vite-plugin-router-warn";
-import { visualizer } from "rollup-plugin-visualizer";
-import removeConsole from "vite-plugin-remove-console";
-import { themePreprocessorPlugin } from "@pureadmin/theme";
+import { visualizer } from "rollup-plugin-visualizer"; // 打包分析
+import removeConsole from "vite-plugin-remove-console"; // 删除console
+import { themePreprocessorPlugin } from "@pureadmin/theme"; //
 import { genScssMultipleScopeVars } from "../src/layout/theme";
 import { vitePluginFakeServer } from "vite-plugin-fake-server";
 

@@ -36,7 +36,7 @@ const { isDark } = useDark();
 const { layout } = useLayout();
 const isMobile = deviceDetection();
 const pureSetting = useSettingStoreHook();
-const { $storage } = useGlobal<GlobalPropertiesApi>();
+const { $storage }: GlobalPropertiesApi = useGlobal();
 
 const set: setType = reactive({
   sidebar: computed(() => {

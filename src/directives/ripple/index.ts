@@ -1,5 +1,4 @@
 import "./index.scss";
-import { isObject } from "@pureadmin/utils";
 import type { Directive, DirectiveBinding } from "vue";
 
 export interface RippleOptions {
@@ -187,8 +186,8 @@ function updateRipple(
   el._ripple.enabled = enabled;
   el._ripple.centered = modifiers.center;
   el._ripple.circle = modifiers.circle;
-  if (isObject(value) && value.class) {
-    el._ripple.class = value.class;
+  if (typeof value === "object" && value.class!) {
+    el._ripple.class = value.class!;
   }
 
   if (enabled && !wasEnabled) {

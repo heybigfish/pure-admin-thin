@@ -36,7 +36,7 @@ export function useDataThemeChange() {
     { color: "#52c41a", themeColor: "auroraGreen" }
   ]);
 
-  const { $storage } = useGlobal<GlobalPropertiesApi>();
+  const { $storage }: GlobalPropertiesApi = useGlobal();
   const dataTheme = ref<boolean>($storage?.layout?.darkMode);
   const overallStyle = ref<string>($storage?.layout?.overallStyle);
   const body = document.documentElement as HTMLElement;

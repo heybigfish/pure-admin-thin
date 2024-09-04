@@ -28,7 +28,7 @@ const iconClass = computed(() => {
   ];
 });
 
-const { $storage } = useGlobal<GlobalPropertiesApi>();
+const { $storage }: GlobalPropertiesApi = useGlobal();
 const themeColor = computed(() => $storage.layout?.themeColor);
 
 const emit = defineEmits<{

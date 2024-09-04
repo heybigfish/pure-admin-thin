@@ -4,7 +4,6 @@ import { useRouter } from "vue-router";
 import { message } from "@/utils/message";
 import { loginRules } from "./utils/rule";
 import { useNav } from "@/layout/hooks/useNav";
-import type { FormInstance } from "element-plus";
 import { useLayout } from "@/layout/hooks/useLayout";
 import { useUserStoreHook } from "@/store/modules/user";
 import { initRouter, getTopMenu } from "@/router/utils";
@@ -23,7 +22,7 @@ defineOptions({
 });
 const router = useRouter();
 const loading = ref(false);
-const ruleFormRef = ref<FormInstance>();
+const ruleFormRef = ref();
 
 const { initStorage } = useLayout();
 initStorage();
@@ -37,7 +36,7 @@ const ruleForm = reactive({
   password: "admin123"
 });
 
-const onLogin = async (formEl: FormInstance | undefined) => {
+const onLogin = async formEl => {
   if (!formEl) return;
   await formEl.validate((valid, fields) => {
     if (valid) {

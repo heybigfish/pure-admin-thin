@@ -12,12 +12,11 @@ import LaySidebarFullScreen from "../lay-sidebar/components/SidebarFullScreen.vu
 
 import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
 import Setting from "@iconify-icons/ri/settings-3-line";
-
+import { getStorageItem } from "@/utils/common";
 const menuRef = ref();
 const showLogo = ref(
-  storageLocal().getItem<StorageConfigs>(
-    `${responsiveStorageNameSpace()}configure`
-  )?.showLogo ?? true
+  getStorageItem<StorageConfigs>(`${responsiveStorageNameSpace()}configure`)
+    ?.showLogo ?? true
 );
 
 const {

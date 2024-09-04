@@ -28,7 +28,7 @@ import SystemIcon from "@/assets/svg/system.svg?component";
 
 const { device } = useNav();
 const { isDark } = useDark();
-const { $storage } = useGlobal<GlobalPropertiesApi>();
+const { $storage }: GlobalPropertiesApi = useGlobal();
 
 const mixRef = ref();
 const verticalRef = ref();

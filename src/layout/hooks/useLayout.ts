@@ -4,7 +4,7 @@ import { useGlobal } from "@pureadmin/utils";
 import { useMultiTagsStore } from "@/store/modules/multiTags";
 
 export function useLayout() {
-  const { $storage, $config } = useGlobal<GlobalPropertiesApi>();
+  const { $storage, $config }: GlobalPropertiesApi = useGlobal();
 
   const initStorage = () => {
     /** 路由 */

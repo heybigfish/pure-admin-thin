@@ -5,18 +5,16 @@ import {
   storageLocal,
   responsiveStorageNameSpace
 } from "../utils";
-
+import { getStorageItem } from "@/utils/common";
 export const useEpThemeStore = defineStore({
   id: "pure-epTheme",
   state: () => ({
     epThemeColor:
-      storageLocal().getItem<StorageConfigs>(
-        `${responsiveStorageNameSpace()}layout`
-      )?.epThemeColor ?? getConfig().EpThemeColor,
+      getStorageItem<StorageConfigs>(`${responsiveStorageNameSpace()}layout`)
+        ?.epThemeColor ?? getConfig().EpThemeColor,
     epTheme:
-      storageLocal().getItem<StorageConfigs>(
-        `${responsiveStorageNameSpace()}layout`
-      )?.theme ?? getConfig().Theme
+      getStorageItem<StorageConfigs>(`${responsiveStorageNameSpace()}layout`)
+        ?.theme ?? getConfig().Theme
   }),
   getters: {
     getEpThemeColor(state) {
@@ -33,7 +31,7 @@ export const useEpThemeStore = defineStore({
   },
   actions: {
     setEpThemeColor(newColor: string): void {
-      const layout = storageLocal().getItem<StorageConfigs>(
+      const layout = getStorageItem<StorageConfigs>(
         `${responsiveStorageNameSpace()}layout`
       );
       this.epTheme = layout?.theme;

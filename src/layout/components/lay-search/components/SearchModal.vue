@@ -12,7 +12,7 @@ import { useDebounceFn, onKeyStroke } from "@vueuse/core";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 import { cloneDeep, isAllEmpty, storageLocal } from "@pureadmin/utils";
 import SearchIcon from "@iconify-icons/ri/search-line";
-
+import { getStorageItem as getStorageItemCommon } from "@/utils/common";
 interface Props {
   /** 弹窗显隐 */
   value: boolean;
@@ -82,7 +82,7 @@ const showEmpty = computed(() => {
 });
 
 function getStorageItem(key) {
-  return storageLocal().getItem<optionsItem[]>(key) || [];
+  return getStorageItemCommon<optionsItem[]>(key) || [];
 }
 
 function setStorageItem(key, value) {

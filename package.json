@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_OPTIONS=--max-old-space-size=4096 vite",
     "serve": "pnpm dev",
-    "build": "rimraf dist && NODE_OPTIONS=--max-old-space-size=8192 vite build",
+    "build": "rimraf dist && cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build",
     "build:staging": "rimraf dist && vite build --mode staging",
     "report": "rimraf dist && vite build",
     "preview": "vite preview",
@@ -96,6 +96,7 @@
     "@vitejs/plugin-vue-jsx": "^4.0.1",
     "autoprefixer": "^10.4.20",
     "boxen": "^7.1.1",
+    "cross-env": "^7.0.3",
     "cssnano": "^7.0.5",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",

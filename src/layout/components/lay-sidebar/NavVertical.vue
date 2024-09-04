@@ -11,13 +11,12 @@ import LaySidebarLogo from "../lay-sidebar/components/SidebarLogo.vue";
 import LaySidebarItem from "../lay-sidebar/components/SidebarItem.vue";
 import LaySidebarLeftCollapse from "../lay-sidebar/components/SidebarLeftCollapse.vue";
 import LaySidebarCenterCollapse from "../lay-sidebar/components/SidebarCenterCollapse.vue";
-
+import { getStorageItem } from "@/utils/common";
 const route = useRoute();
 const isShow = ref(false);
 const showLogo = ref(
-  storageLocal().getItem<StorageConfigs>(
-    `${responsiveStorageNameSpace()}configure`
-  )?.showLogo ?? true
+  getStorageItem<StorageConfigs>(`${responsiveStorageNameSpace()}configure`)
+    ?.showLogo ?? true
 );
 
 const {

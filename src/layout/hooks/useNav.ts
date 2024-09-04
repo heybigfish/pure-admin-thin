@@ -63,7 +63,7 @@ export function useNav() {
     return pureApp.getDevice;
   });
 
-  const { $storage, $config } = useGlobal<GlobalPropertiesApi>();
+  const { $storage, $config }: GlobalPropertiesApi = useGlobal();
   const layout = computed(() => {
     return $storage?.layout?.layout;
   });

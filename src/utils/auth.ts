@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { useUserStoreHook } from "@/store/modules/user";
-import { storageLocal, isString, isIncludeAllChildren } from "@pureadmin/utils";
-
+import { storageLocal, isIncludeAllChildren } from "@pureadmin/utils";
+import { getStorageItem } from "@/utils/common";
 export interface DataInfo<T> {
   /** token */
   accessToken: string;
@@ -95,16 +95,12 @@ export function setToken(data: DataInfo<Date>) {
       permissions: data?.permissions ?? []
     });
   } else {
-    const avatar =
-      storageLocal().getItem<DataInfo<number>>(userKey)?.avatar ?? "";
-    const username =
-      storageLocal().getItem<DataInfo<number>>(userKey)?.username ?? "";
-    const nickname =
-      storageLocal().getItem<DataInfo<number>>(userKey)?.nickname ?? "";
-    const roles =
-      storageLocal().getItem<DataInfo<number>>(userKey)?.roles ?? [];
+    const avatar = getStorageItem<DataInfo<number>>(userKey)?.avatar ?? "";
+    const username = getStorageItem<DataInfo<number>>(userKey)?.username ?? "";
+    const nickname = getStorageItem<DataInfo<number>>(userKey)?.nickname ?? "";
+    const roles = getStorageItem<DataInfo<number>>(userKey)?.roles ?? [];
     const permissions =
-      storageLocal().getItem<DataInfo<number>>(userKey)?.permissions ?? [];
+      getStorageItem<DataInfo<number>>(userKey)?.permissions ?? [];
     setUserKey({
       avatar,
       username,
@@ -134,8 +130,9 @@ export const hasPerms = (value: string | Array<string>): boolean => {
   const { permissions } = useUserStoreHook();
   if (!permissions) return false;
   if (permissions.length === 1 && permissions[0] === allPerms) return true;
-  const isAuths = isString(value)
-    ? permissions.includes(value)
-    : isIncludeAllChildren(value, permissions);
+  const isAuths =
+    typeof value === "string"
+      ? permissions.includes(value)
+      : isIncludeAllChildren(value, permissions);
   return isAuths ? true : false;
 };
