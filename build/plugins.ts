@@ -14,7 +14,7 @@ import removeConsole from "vite-plugin-remove-console"; // 删除console
 import { themePreprocessorPlugin } from "@pureadmin/theme"; //
 import { genScssMultipleScopeVars } from "../src/layout/theme";
 import { vitePluginFakeServer } from "vite-plugin-fake-server";
-
+import AutoImport from "unplugin-auto-import/vite";
 export function getPluginsList(
   VITE_CDN: boolean,
   VITE_COMPRESSION: ViteCompression
@@ -56,6 +56,11 @@ export function getPluginsList(
         multipleScopeVars: genScssMultipleScopeVars(),
         extract: true
       }
+    }),
+    AutoImport({
+      imports: ["vue", "vue-router"],
+      dirs: ["src/stores", "src/composables", "src/hooks"],
+      dts: "types/auto-imports.d.ts" // 使用typescript，需要指定生成对应的d.ts文件或者设置为true,生成默认导入d.ts文件
     }),
     // svg组件化支持
     svgLoader(),

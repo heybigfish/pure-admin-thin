@@ -225,6 +225,9 @@ importers:
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
+      unplugin-auto-import:
+        specifier: ^0.18.2
+        version: 0.18.2(@nuxt/kit@3.12.4(rollup@4.21.0))(@vueuse/core@10.11.1(vue@3.4.38(typescript@5.5.4)))(rollup@4.21.0)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@20.16.1)(sass@1.77.8)
@@ -268,6 +271,9 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@antfu/utils@0.7.10':
+    resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
 
   '@babel/code-frame@7.24.7':
     resolution: {integrity: sha512-BcYH1CVJBO9tvyIZ2jVeXgSIMvGZ2FDRvDdOIVQyuklNKSsx+eppDEBq/g47Ayw+RqNFE+URvOShmf+f/qwAlA==}
@@ -3627,6 +3633,18 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
+  unplugin-auto-import@0.18.2:
+    resolution: {integrity: sha512-Dwb3rAic75harVBrVjwiq6H24PT+nBq2dpxV5BH8NNI6sDFaTytvP+iyo4xy7prQbR3r5K6nMs4f5Wp9PE4g8A==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@nuxt/kit': ^3.2.2
+      '@vueuse/core': '*'
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      '@vueuse/core':
+        optional: true
+
   unplugin@1.12.2:
     resolution: {integrity: sha512-bEqQxeC7rxtxPZ3M5V4Djcc4lQqKPgGe3mAWZvxcSmX5jhGxll19NliaRzQSQPrk4xJZSGniK3puLWpRuZN7VQ==}
     engines: {node: '>=14.0.0'}
@@ -3916,6 +3934,8 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
+
+  '@antfu/utils@0.7.10': {}
 
   '@babel/code-frame@7.24.7':
     dependencies:
@@ -5243,8 +5263,7 @@ snapshots:
 
   concat-map@0.0.1: {}
 
-  confbox@0.1.7:
-    optional: true
+  confbox@0.1.7: {}
 
   consola@3.2.3:
     optional: true
@@ -5636,8 +5655,7 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  escape-string-regexp@5.0.0:
-    optional: true
+  escape-string-regexp@5.0.0: {}
 
   eslint-config-prettier@9.1.0(eslint@9.9.0(jiti@1.21.6)):
     dependencies:
@@ -6196,7 +6214,6 @@ snapshots:
     dependencies:
       mlly: 1.7.1
       pkg-types: 1.1.3
-    optional: true
 
   localforage@1.10.0:
     dependencies:
@@ -6334,7 +6351,6 @@ snapshots:
       pathe: 1.1.2
       pkg-types: 1.1.3
       ufo: 1.5.4
-    optional: true
 
   mri@1.2.0:
     optional: true
@@ -6480,8 +6496,7 @@ snapshots:
       process: 0.11.10
       util: 0.10.4
 
-  pathe@1.1.2:
-    optional: true
+  pathe@1.1.2: {}
 
   perfect-debounce@1.0.0:
     optional: true
@@ -6511,7 +6526,6 @@ snapshots:
       confbox: 0.1.7
       mlly: 1.7.1
       pathe: 1.1.2
-    optional: true
 
   popmotion@11.0.5:
     dependencies:
@@ -7004,8 +7018,7 @@ snapshots:
       immutable: 4.3.7
       source-map-js: 1.2.0
 
-  scule@1.3.0:
-    optional: true
+  scule@1.3.0: {}
 
   semver@6.3.1: {}
 
@@ -7114,7 +7127,6 @@ snapshots:
   strip-literal@2.1.0:
     dependencies:
       js-tokens: 9.0.0
-    optional: true
 
   style-value-types@5.1.2:
     dependencies:
@@ -7399,8 +7411,7 @@ snapshots:
 
   typescript@5.5.4: {}
 
-  ufo@1.5.4:
-    optional: true
+  ufo@1.5.4: {}
 
   uncrypto@0.1.3:
     optional: true
@@ -7434,9 +7445,24 @@ snapshots:
       unplugin: 1.12.2
     transitivePeerDependencies:
       - rollup
-    optional: true
 
   universalify@2.0.1: {}
+
+  unplugin-auto-import@0.18.2(@nuxt/kit@3.12.4(rollup@4.21.0))(@vueuse/core@10.11.1(vue@3.4.38(typescript@5.5.4)))(rollup@4.21.0):
+    dependencies:
+      '@antfu/utils': 0.7.10
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.0)
+      fast-glob: 3.3.2
+      local-pkg: 0.5.0
+      magic-string: 0.30.11
+      minimatch: 9.0.5
+      unimport: 3.10.0(rollup@4.21.0)
+      unplugin: 1.12.2
+    optionalDependencies:
+      '@nuxt/kit': 3.12.4(rollup@4.21.0)
+      '@vueuse/core': 10.11.1(vue@3.4.38(typescript@5.5.4))
+    transitivePeerDependencies:
+      - rollup
 
   unplugin@1.12.2:
     dependencies:
@@ -7444,7 +7470,6 @@ snapshots:
       chokidar: 3.6.0
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.6.2
-    optional: true
 
   untyped@1.4.2:
     dependencies:
@@ -7641,11 +7666,9 @@ snapshots:
     optionalDependencies:
       typescript: 5.5.4
 
-  webpack-sources@3.2.3:
-    optional: true
+  webpack-sources@3.2.3: {}
 
-  webpack-virtual-modules@0.6.2:
-    optional: true
+  webpack-virtual-modules@0.6.2: {}
 
   which@1.3.1:
     dependencies:
