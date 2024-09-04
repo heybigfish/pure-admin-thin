@@ -1,11 +1,12 @@
 import type { IconifyIcon } from "@iconify/vue";
 const { VITE_HIDE_HOME } = import.meta.env;
+console.log("VITE_HIDE_HOME", VITE_HIDE_HOME);
 
 export const routerArrays: Array<RouteConfigs> =
   VITE_HIDE_HOME === "false"
     ? [
         {
-          path: "/welcome",
+          path: "/home",
           meta: {
             title: "首页",
             icon: "ep:home-filled"

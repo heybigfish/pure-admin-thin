@@ -5,7 +5,7 @@ export default {
   path: "/",
   name: "Home",
   component: Layout,
-  redirect: "/welcome",
+  redirect: "/home",
   meta: {
     icon: "ep:home-filled",
     title: "首页",
@@ -13,9 +13,9 @@ export default {
   },
   children: [
     {
-      path: "/welcome",
+      path: "/home",
       name: "Welcome",
-      component: () => import("@/views/welcome/index.vue"),
+      component: () => import("@/views/home/index.vue"),
       meta: {
         title: "首页",
         showLink: VITE_HIDE_HOME === "true" ? false : true

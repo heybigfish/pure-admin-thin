@@ -6,7 +6,10 @@ import { useGlobal, isNumber } from "@pureadmin/utils";
 import BackTopIcon from "@/assets/svg/back_top.svg?component";
 import { h, computed, Transition, defineComponent } from "vue";
 import { usePermissionStoreHook } from "@/store/modules/permission";
-
+const route = useRoute();
+const key = computed(() => {
+  return route.path + Math.random();
+});
 const props = defineProps({
   fixedHeader: Boolean
 });
@@ -110,7 +113,7 @@ const transitionMain = defineComponent({
     :class="[fixedHeader ? 'app-main' : 'app-main-nofixed-header']"
     :style="getSectionStyle"
   >
-    <router-view>
+    <router-view :key="key">
       <template #default="{ Component, route }">
         <LayFrame :currComp="Component" :currRoute="route">
           <template #default="{ Comp, fullPath, frameInfo }">
